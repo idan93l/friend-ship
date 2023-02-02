@@ -69,4 +69,5 @@ mongoose
     // User.insertMany(users);
     // Post.insertMany(posts);
   })
+  // Test push to github
   .catch((err) => console.log(`${err} did not connect`));
