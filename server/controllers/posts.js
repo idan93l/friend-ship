@@ -14,7 +14,7 @@ export const createPost = async (req, res) => {
       description,
       picturePath,
       likes: {},
-      comments: []
+      comments: [],
     });
     await newPost.save();
 
@@ -26,3 +26,11 @@ export const createPost = async (req, res) => {
 };
 
 /* READ */
+export const createFeedPosts = async (req, res) => {
+  try {
+    const post = await Post.find();
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
