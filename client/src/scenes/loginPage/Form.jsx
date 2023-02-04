@@ -7,7 +7,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import EditOutlineIcon from "@mui/icons-material/EditOutlined"
+import EditOutlineIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -29,4 +29,19 @@ const registerSchema = yup.object().shape({
 const loginSchema = yup.object().shape({
   email: yup.string().email("invalid").required("required"),
   password: yup.string().required("required"),
-})
+});
+
+const initialValuesRegister = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  location: "",
+  occupation: "",
+  picture: "",
+};
+
+const initialValuesLogin = {
+  email: "",
+  password: "",
+}
