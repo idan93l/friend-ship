@@ -29,6 +29,7 @@ export const colorTokens = {
   },
 };
 
+// mui theme settings
 export const themeSettings = (mode) => {
   return {
     pallete: {
@@ -73,6 +74,33 @@ export const themeSettings = (mode) => {
             },
           }),
     },
-    typography: {}
+    typography: {
+      fonFamily: ["Rubik", "sans-serif "].join(","),
+      fontSize: 12,
+      h1: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 40,
+      },
+      h2: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fonFamily: ["Rubik", "sans-serif "].join(","),
+        fontSize: 14,
+      },
+    }
   };
 };
