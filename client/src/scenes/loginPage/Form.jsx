@@ -7,7 +7,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import EditOutlineIcon from "@mui/icons-material/EditOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -122,10 +122,45 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.occupation}
                   name="occupation"
-                  error={Boolean(touched.occupation) && Boolean(errors.occupation)}
+                  error={
+                    Boolean(touched.occupation) && Boolean(errors.occupation)
+                  }
                   helperText={touched.occupation && errors.occupation}
                   sx={{ gridColumn: "span 4" }}
                 />
+                <Box
+                  gridColumn="span 4"
+                  border={`1px solid ${palette.neutral.medium}`}
+                  borderRadius="5px"
+                  p="1rem"
+                >
+                  <Dropzone
+                    acceptedFiles=".jpg,.jpeg,.png"
+                    multiple={false}
+                    onDrop={(acceptedFiles) =>
+                      setFieldValue("picture", acceptedFiles[0])
+                    }
+                  >
+                    {({ getRootProps, getInputProps }) => (
+                      <Box
+                        {...getRootProps()}
+                        border={`2px dashed ${palette.primary.main}`}
+                        p="1rem"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
+                      >
+                        <input {...getInputProps()} />
+                        {!values.picture ? (
+                          <p>Add picture Here</p>
+                        ) : (
+                          <FlexBetween>
+                            <Typography>{value.picture.name}</Typography>
+                            <EditOutlinedIcon />
+                          </FlexBetween>
+                        )}
+                      </Box>
+                    )}
+                  </Dropzone>
+                </Box>
               </>
             )}
           </Box>
