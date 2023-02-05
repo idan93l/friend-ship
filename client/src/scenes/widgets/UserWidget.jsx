@@ -30,5 +30,23 @@ const userWidget = ({ userId, picturePath }) => {
     setUser(data);
   };
 
-  
+  useEffect(() => {
+    getUser;
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!user) return null;
+
+  const {
+    firstName,
+    lastName,
+    location,
+    occupation,
+    viewedProfile,
+    impressions,
+    friends,
+  } = user;
+
+  return (
+    
+  )
 };
