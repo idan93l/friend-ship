@@ -64,8 +64,8 @@ const userWidget = ({ userId, picturePath }) => {
               sx={{
                 "&:hover": {
                   color: palette.primary.light,
-                  cursor: "pointer"
-                }
+                  cursor: "pointer",
+                },
               }}
             >
               {firstName} {lastName}
@@ -80,18 +80,33 @@ const userWidget = ({ userId, picturePath }) => {
         {/* SECOND ROW */}
         <Box p="1rem 0">
           <Box display="flex" alignItems="center" gap="1rem" mb="0.rem">
-            <LocationOnOUtlined fontSize="large" sx={{color: main}} /> 
+            <LocationOnOUtlined fontSize="large" sx={{ color: main }} />
             <Typography color={medium}>{location}</Typography>
           </Box>
-          <Box display="flex" alignItems="center" gap="1rem" >
-            <WorkOutlineOutlined fontSize="large" sx={{color: main}} /> 
+          <Box display="flex" alignItems="center" gap="1rem">
+            <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
             <Typography color={medium}>{occupation}</Typography>
           </Box>
         </Box>
 
         {/* THIRD ROW */}
-        
+        <Box p="1rem">
+          <FlexBetween mb="0.5rem">
+            <Typography color={medium}>Who's viewed your profile</Typography>
+            <Typography color={main} fontWeight="500">
+              {viewedProfile}
+            </Typography>
+          </FlexBetween>
+          <FlexBetween>
+          <Typography color={medium}>Impressions of your post</Typography>
+            <Typography color={main} fontWeight="500">
+              {impressions}
+            </Typography>
+          </FlexBetween>
+        </Box>
 
+        {/* FOURTH ROW */}
+        
       </FlexBetween>
     </WidgetWrapper>
   );
