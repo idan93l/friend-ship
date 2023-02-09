@@ -29,12 +29,27 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
-  
+
   const { palette } = useTheme();
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 
-  return <div>PostWidget</div>;
+  const patchLike = async () => {
+    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+      method: "Post",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId: loggedInUserId }),
+    });
+    const updatedPost = await response.json();
+    dispatch(setPost({ post: updatedPost }));
+  };
+
+  return (
+    
+  )
 };
 
 export default PostWidget;
