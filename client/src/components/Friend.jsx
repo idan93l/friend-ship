@@ -11,8 +11,8 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state)=> state.user.friends);
-  
+  const friends = useSelector((state) => state.user.friends);
+
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
   const primaryDark = palette.primary.dark;
@@ -26,24 +26,24 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       `http://localhost:3001/users/${_id}/${friendId}`,
       {
         method: "PATCH",
-        header: {
+        headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }
-    )
+    );
     const data = await response.json();
-    dispatch(setFriends({ friends: data }))
-  }
+    dispatch(setFriends({ friends: data }));
+  };
 
   return (
     <FlexBetween>
-      <FlexBetween gap="1rem" >
+      <FlexBetween gap="1rem">
         <UserImage image={userPicturePath} size="55px" />
         <Box
           onClick={() => {
-            navigate(`/profile/${friendId}`)
-            navigate(0)
+            navigate(`/profile/${friendId}`);
+            navigate(0);
           }}
         >
           <Typography
@@ -53,8 +53,8 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             sx={{
               "&:hover": {
                 color: palette.primary.light,
-                cursor: "pointer"
-              }
+                cursor: "pointer",
+              },
             }}
           >
             {name}
@@ -64,18 +64,18 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           </Typography>
         </Box>
       </FlexBetween>
-      <IconButton 
+      <IconButton
         onClick={() => patchFriend()}
-        sx={{backgroundColor: primaryLight, p: "0.6rem"}}
+        sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
       >
         {isFriend ? (
-          <PersonRemoveOutlined sx={{color: primaryDark}} />
+          <PersonRemoveOutlined sx={{ color: primaryDark }} />
         ) : (
-          <PersonAddOutlined sx={{color: primaryDark}} />
+          <PersonAddOutlined sx={{ color: primaryDark }} />
         )}
       </IconButton>
     </FlexBetween>
-  )
+  );
 };
 
 export default Friend;
