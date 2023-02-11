@@ -11,6 +11,10 @@ const FriendListWidget = ({userId}) => {
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
 
+  const getFriends = async () => {
+    
+  }
+
   return (
     <div>FriendListWidget</div>
   )
