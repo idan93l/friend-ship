@@ -28,7 +28,9 @@ const FriendListWidget = ({userId}) => {
 
   return (
     <WidgetWrapper>
-      
+      <Typography>
+        
+      </Typography>
     </WidgetWrapper>
   )
 }
