@@ -27,7 +27,9 @@ const FriendListWidget = ({userId}) => {
   }, [])
 
   return (
-    <div>FriendListWidget</div>
+    <WidgetWrapper>
+      
+    </WidgetWrapper>
   )
 }
 
