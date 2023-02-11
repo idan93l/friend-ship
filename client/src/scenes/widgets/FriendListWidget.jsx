@@ -1,4 +1,5 @@
 import { Typography, Box, useTheme } from "@mui/material"
+import { palette } from "@mui/system"
 import Friend from "components/Friend"
 import WidgetWrapper from "components/WidgetWrapper"
 import { useEffect } from "react"
@@ -28,8 +29,13 @@ const FriendListWidget = ({userId}) => {
 
   return (
     <WidgetWrapper>
-      <Typography>
-        
+      <Typography
+        color={palette.neutral.dark}
+        variant="h5"
+        fontWeight="500"
+        sx={{mb: "1.5rem"}}
+      >
+        Friend List
       </Typography>
     </WidgetWrapper>
   )
