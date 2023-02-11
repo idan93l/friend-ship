@@ -39,6 +39,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
+    {/* {console.log(posts[0].likes)} */}
       {posts.map(
         ({
           _id,

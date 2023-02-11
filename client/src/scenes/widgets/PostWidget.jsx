@@ -49,6 +49,7 @@ const PostWidget = ({
 
   return (
     <WidgetWrapper m="2rem 0">
+      {/* {console.log(likes)} */}
       <Friend
         friendId={postUserId}
         name={name}
